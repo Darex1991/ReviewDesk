@@ -2,7 +2,7 @@
 
 Upload a ZIP of a repository (or a handful of source files), let a background worker run **static analysis + an AI code review**, and get back a **prioritised list of findings** with file, line, explanation and a suggested fix.
 
-Built on the [Selleo boilerplate](https://github.com/Selleo/boilerplate) (NestJS + React Router 7 + BullMQ + Drizzle) and adapted into a single-purpose product.
+Built on the NestJS + React Router 7 + BullMQ + Drizzle
 
 ---
 

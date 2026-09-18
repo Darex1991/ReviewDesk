@@ -12,7 +12,3 @@ Feat:
 - Prioritised findings (critical → info) with category, source, snippet and suggested fix
 - Dashboard overview, reviews list, review details with filters, retry and delete
 - Reviews API (`/api/v1/reviews`) with generated typed client
-
-Chore:
-- Renamed boilerplate to ReviewDesk (packages, domains, database, bucket, copy)
-- Removed boilerplate update artifacts
