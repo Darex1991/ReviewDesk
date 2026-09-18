@@ -1,0 +1,33 @@
+{
+  "name": "reviewdesk",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "turbo build",
+    "build-email": "turbo build-email",
+    "build-shared": "turbo build-shared",
+    "dev": "turbo dev",
+    "dev-social": "turbo dev-social",
+    "lint": "turbo lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "generate:client": "pnpm run --filter=reviewdesk-web-app generate:client",
+    "db:generate": "pnpm run --filter=reviewdesk-api db:generate",
+    "db:migrate": "pnpm run --filter=reviewdesk-api db:migrate",
+    "test:web": "pnpm run --filter=reviewdesk-web-app test",
+    "test:api": "pnpm run --filter=reviewdesk-api test",
+    "test:web:e2e": "pnpm run --filter=reviewdesk-web-app test:e2e",
+    "test:api:e2e": "pnpm run --filter=reviewdesk-api test:e2e",
+    "typecheck:api": "pnpm run --filter=reviewdesk-api typecheck",
+    "clean-modules": "rm -rf node_modules && cd packages/email-templates && rm -rf node_modules"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "prettier": "^3.7.4",
+    "turbo": "^2.6.3"
+  },
+  "packageManager": "pnpm@10.26.1",
+  "engines": {
+    "node": ">=24.8.0"
+  }
+}

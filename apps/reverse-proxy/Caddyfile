@@ -1,0 +1,15 @@
+api.reviewdesk.localhost {
+	reverse_proxy localhost:3000
+}
+
+app.reviewdesk.localhost {
+	reverse_proxy localhost:5173
+}
+
+mailbox.reviewdesk.localhost {
+	reverse_proxy localhost:8025
+}
+
+storage.reviewdesk.localhost {
+	reverse_proxy localhost:8069
+}

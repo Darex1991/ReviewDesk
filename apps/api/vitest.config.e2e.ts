@@ -1,0 +1,27 @@
+import swc from "unplugin-swc";
+import { defineConfig } from "vitest/config";
+import { resolve } from "path";
+
+export default defineConfig({
+  test: {
+    globals: true,
+    root: "./",
+    include: ["**/*.e2e-spec.ts"],
+    setupFiles: ["./test/test-e2e-setup.ts"],
+    fileParallelism: false,
+  },
+  plugins: [
+    // This is required to build the test files with SWC
+    // @ts-ignore unplugin-swc types are broken
+    swc.vite({
+      // Explicitly set the module type to avoid inheriting this value from a `.swcrc` config file
+      module: { type: "es6" },
+    }),
+  ],
+  resolve: {
+    alias: {
+      // Ensure Vitest correctly resolves TypeScript path aliases
+      src: resolve(__dirname, "./src"),
+    },
+  },
+});

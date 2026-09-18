@@ -1,0 +1,6 @@
+{
+  "name": "reviewdesk-reverse-proxy",
+  "scripts": {
+    "dev": "caddy run"
+  }
+}

@@ -1,0 +1,224 @@
+{
+  "auth": {
+    "headings": {
+      "login": "Witaj ponownie",
+      "register": "Utwórz konto"
+    },
+    "subheadings": {
+      "login": "Zaloguj się do konta ReviewDesk",
+      "register": "Wpisz swoje dane, aby zacząć"
+    },
+    "fields": {
+      "email": {
+        "label": "E-mail",
+        "placeholder": "m@example.com",
+        "errors": {
+          "invalid": "Nieprawidłowy adres e-mail"
+        }
+      },
+      "password": {
+        "label": "Hasło",
+        "errors": {
+          "minLength": "Hasło musi mieć co najmniej 8 znaków"
+        }
+      },
+      "name": {
+        "label": "Nazwa użytkownika",
+        "placeholder": "twoja_nazwa",
+        "errors": {
+          "minLength": "Nazwa użytkownika musi mieć co najmniej 3 znaki"
+        }
+      },
+      "confirmPassword": {
+        "label": "Potwierdź hasło",
+        "errors": {
+          "minLength": "Hasło musi mieć co najmniej 8 znaków",
+          "mismatch": "Hasła nie są takie same"
+        }
+      }
+    },
+    "buttons": {
+      "primary": {
+        "login": "Zaloguj się",
+        "register": "Utwórz konto"
+      },
+      "google": "Zaloguj przez Google",
+      "microsoft": "Zaloguj przez Microsoft"
+    },
+    "links": {
+      "forgotPassword": "Nie pamiętasz hasła?",
+      "toggle": {
+        "hasAccount": "Masz już konto?",
+        "noAccount": "Nie masz konta?",
+        "signIn": "Zaloguj się",
+        "signUp": "Zarejestruj się"
+      },
+      "agreement": {
+        "prefix": "Klikając kontynuuj, akceptujesz nasze",
+        "terms": "Warunki korzystania",
+        "and": "oraz",
+        "privacy": "Politykę prywatności"
+      }
+    },
+    "continueWith": "Lub kontynuuj przez",
+    "toast": {
+      "verified": {
+        "title": "Twój e-mail został zweryfikowany",
+        "description": "Możesz teraz zalogować się do swojego konta"
+      }
+    }
+  },
+  "forgotPassword": {
+    "title": "Odzyskaj dostęp",
+    "description": "Podaj adres email powiązany z Twoim kontem. Jeśli konto istnieje, wyślemy instrukcję resetu hasła.",
+    "fields": {
+      "email": {
+        "label": "Email",
+        "errors": {
+          "invalid": "Nieprawidłowy adres email"
+        }
+      }
+    },
+    "buttons": {
+      "submit": "Wyślij link resetujący",
+      "submitting": "Wysyłanie..."
+    },
+    "links": {
+      "remember": "Pamiętasz hasło?",
+      "backToLogin": "Wróć do logowania"
+    }
+  },
+  "newPassword": {
+    "title": "Ustaw nowe hasło",
+    "description": "Wpisz nowe hasło do konta, aby odzyskać dostęp. Hasło powinno mieć co najmniej 8 znaków.",
+    "fields": {
+      "newPassword": {
+        "label": "Nowe hasło",
+        "errors": {
+          "minLength": "Hasło musi mieć co najmniej 8 znaków"
+        }
+      },
+      "confirmPassword": {
+        "label": "Powtórz hasło",
+        "errors": {
+          "minLength": "Hasło musi mieć co najmniej 8 znaków",
+          "mismatch": "Hasła muszą być takie same"
+        }
+      }
+    },
+    "buttons": {
+      "submit": "Zapisz nowe hasło",
+      "submitting": "Zapisywanie...",
+      "backToForgot": "Wróć do resetu hasła"
+    },
+    "messages": {
+      "invalidLink": "Link do resetu hasła wygasł lub jest nieprawidłowy.",
+      "tokenIssue": "Link resetujący jest nieprawidłowy lub wygasł. Poproś o nowy link.",
+      "backToLoginPrompt": "Wróć do logowania?",
+      "backToLogin": "Zaloguj się"
+    }
+  },
+  "landing": {
+    "meta": {
+      "title": "ReviewDesk | Code Review as a Service",
+      "description": "Wgraj ZIP z repozytorium lub pojedyncze pliki. ReviewDesk uruchamia w tle analizę statyczną i review AI, a wynik zwraca jako listę uwag z priorytetami."
+    },
+    "layout": {
+      "nav": {
+        "product": "Produkt",
+        "features": "Jak to działa",
+        "pricing": "Self-hosting",
+        "about": "O projekcie"
+      },
+      "cta": {
+        "signIn": "Zaloguj się",
+        "dashboard": "Otwórz panel"
+      },
+      "footer": {
+        "madeWith": "ReviewDesk · analiza statyczna + review AI dla dowolnego kodu.",
+        "product": "Produkt",
+        "features": "Jak to działa",
+        "pricing": "Self-hosting",
+        "about": "O projekcie"
+      }
+    },
+    "hero": {
+      "badge": "Analiza statyczna + review AI",
+      "title": "Wgraj kod. Odbierz review z priorytetami w kilka minut.",
+      "description": "ReviewDesk przyjmuje ZIP z repozytorium albo kilka plików, uruchamia deterministyczne reguły bezpieczeństwa i jakości, a następnie pozwala Claude przejrzeć kod jak senior developer. Uwagi wracają uszeregowane od krytycznych do informacyjnych, każda z konkretną propozycją poprawki.",
+      "primaryCta": "Utwórz konto",
+      "secondaryCta": "Otwórz panel",
+      "highlights": {
+        "auth": "Przetwarzanie w tle, bez czekania na stronie",
+        "stack": "Bezpieczeństwo, bugi, wydajność, utrzymanie"
+      }
+    },
+    "features": {
+      "title": "Jak działa review",
+      "description": "Trzy etapy, w pełni automatyczne. Wgrywasz raz i wracasz do uszeregowanej listy problemów.",
+      "items": {
+        "authSecurity": {
+          "title": "1. Upload",
+          "description": "Wrzuć eksport ZIP repozytorium lub pojedyncze pliki źródłowe. Zależności, build, lockfile'e i pliki binarne są odfiltrowywane automatycznie."
+        },
+        "dashboardFoundation": {
+          "title": "2. Analiza w tle",
+          "description": "Worker rozpakowuje upload, uruchamia reguły statyczne (sekrety, injection, niebezpieczne wywołania, pozostałości debugowania), a potem wysyła kod do reviewera AI w partiach. Postęp widać na żywo."
+        },
+        "developerErgonomics": {
+          "title": "3. Uwagi z priorytetami",
+          "description": "Każda uwaga ma priorytet, kategorię, dokładny plik i linię, wyjaśnienie oraz propozycję poprawki. Filtruj po priorytecie, źródle lub pliku."
+        }
+      }
+    },
+    "pricing": {
+      "title": "Self-hosted, pod Twoją kontrolą",
+      "description": "ReviewDesk działa na Twojej infrastrukturze: Postgres, Redis i storage zgodny z S3. Użyj własnego klucza Anthropic API albo uruchamiaj wyłącznie analizę statyczną.",
+      "amount": "Twój klucz",
+      "amountNote": "płacisz tylko za użycie modelu",
+      "additional": "Reviewera AI możesz wyłączyć per review, gdy potrzebujesz tylko deterministycznych sprawdzeń.",
+      "contactCta": "Utwórz konto",
+      "codebaseCta": "Jak to działa"
+    },
+    "footer": {
+      "renderedAt": "Ostatnio wyrenderowano: {{date}}"
+    }
+  },
+  "errors": {
+    "actions": {
+      "home": "Przejdź na stronę główną",
+      "dashboard": "Otwórz panel",
+      "backToDashboard": "Wróć do panelu"
+    },
+    "global": {
+      "code": "Błąd 404",
+      "title": "Nie znaleźliśmy tej strony",
+      "description": "Adres może być nieaktualny albo strona została przeniesiona."
+    },
+    "dashboard": {
+      "code": "Błąd 404",
+      "title": "Ta strona panelu nie istnieje",
+      "description": "Sprawdź adres URL lub wróć do strony głównej panelu."
+    }
+  },
+  "common": {
+    "languages": {
+      "english": "English",
+      "polish": "Polski"
+    }
+  },
+  "dashboard": {
+    "navUser": {
+      "upgradeToPro": "Przejdź na Pro",
+      "account": "Konto",
+      "billing": "Rozliczenia",
+      "notifications": "Powiadomienia",
+      "language": "Język",
+      "logout": "Wyloguj się"
+    }
+  },
+  "about": {
+    "metaTitle": "O ReviewDesk",
+    "heading": "O ReviewDesk"
+  }
+}

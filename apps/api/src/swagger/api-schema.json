@@ -1,0 +1,1964 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/api/v1/users/me": {
+      "get": {
+        "operationId": "UsersController_getProfile_v1",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Users"
+        ]
+      }
+    },
+    "/api/v1/users/me/alert-email": {
+      "get": {
+        "operationId": "UsersController_scheduleAlertEmail_v1",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Users"
+        ]
+      }
+    },
+    "/api/v1/users": {
+      "get": {
+        "operationId": "UsersController_getUsers_v1",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetUsersResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Users"
+        ]
+      }
+    },
+    "/api/v1/users/{id}": {
+      "get": {
+        "operationId": "UsersController_getUserById_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetUserByIdResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Users"
+        ]
+      },
+      "patch": {
+        "operationId": "UsersController_updateUser_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateUserResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Users"
+        ]
+      },
+      "delete": {
+        "operationId": "UsersController_deleteUser_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteUserResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Users"
+        ]
+      }
+    },
+    "/api/v1/users/{id}/image": {
+      "post": {
+        "operationId": "UsersController_uploadUserImage_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UploadUserImageResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Users"
+        ]
+      }
+    },
+    "/api/v1/reviews": {
+      "post": {
+        "operationId": "ReviewsController_createReview_v1",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "aiEnabled": {
+                    "type": "string",
+                    "enum": [
+                      "true",
+                      "false"
+                    ]
+                  },
+                  "files": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "binary"
+                    }
+                  }
+                },
+                "required": [
+                  "files"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateReviewResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Reviews"
+        ]
+      },
+      "get": {
+        "operationId": "ReviewsController_listReviews_v1",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListReviewsResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Reviews"
+        ]
+      }
+    },
+    "/api/v1/reviews/stats": {
+      "get": {
+        "operationId": "ReviewsController_getStats_v1",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetStatsResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Reviews"
+        ]
+      }
+    },
+    "/api/v1/reviews/{id}": {
+      "get": {
+        "operationId": "ReviewsController_getReview_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetReviewResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Reviews"
+        ]
+      },
+      "delete": {
+        "operationId": "ReviewsController_deleteReview_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteReviewResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Reviews"
+        ]
+      }
+    },
+    "/api/v1/reviews/{id}/retry": {
+      "post": {
+        "operationId": "ReviewsController_retryReview_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RetryReviewResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Reviews"
+        ]
+      }
+    },
+    "/api/v1/test-config/setup": {
+      "post": {
+        "operationId": "TestConfigController_setup_v1",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "TestConfig"
+        ]
+      }
+    },
+    "/api/v1/test-config/teardown": {
+      "post": {
+        "operationId": "TestConfigController_teardown_v1",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "TestConfig"
+        ]
+      }
+    },
+    "/api/health": {
+      "get": {
+        "operationId": "HealthController_check",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "The Health Check is successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "ok"
+                    },
+                    "info": {
+                      "type": "object",
+                      "example": {
+                        "database": {
+                          "status": "up"
+                        }
+                      },
+                      "additionalProperties": {
+                        "type": "object",
+                        "required": [
+                          "status"
+                        ],
+                        "properties": {
+                          "status": {
+                            "type": "string"
+                          }
+                        },
+                        "additionalProperties": true
+                      },
+                      "nullable": true
+                    },
+                    "error": {
+                      "type": "object",
+                      "example": {},
+                      "additionalProperties": {
+                        "type": "object",
+                        "required": [
+                          "status"
+                        ],
+                        "properties": {
+                          "status": {
+                            "type": "string"
+                          }
+                        },
+                        "additionalProperties": true
+                      },
+                      "nullable": true
+                    },
+                    "details": {
+                      "type": "object",
+                      "example": {
+                        "database": {
+                          "status": "up"
+                        }
+                      },
+                      "additionalProperties": {
+                        "type": "object",
+                        "required": [
+                          "status"
+                        ],
+                        "properties": {
+                          "status": {
+                            "type": "string"
+                          }
+                        },
+                        "additionalProperties": true
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "The Health Check is not successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "info": {
+                      "type": "object",
+                      "example": {
+                        "database": {
+                          "status": "up"
+                        }
+                      },
+                      "additionalProperties": {
+                        "type": "object",
+                        "required": [
+                          "status"
+                        ],
+                        "properties": {
+                          "status": {
+                            "type": "string"
+                          }
+                        },
+                        "additionalProperties": true
+                      },
+                      "nullable": true
+                    },
+                    "error": {
+                      "type": "object",
+                      "example": {
+                        "redis": {
+                          "status": "down",
+                          "message": "Could not connect"
+                        }
+                      },
+                      "additionalProperties": {
+                        "type": "object",
+                        "required": [
+                          "status"
+                        ],
+                        "properties": {
+                          "status": {
+                            "type": "string"
+                          }
+                        },
+                        "additionalProperties": true
+                      },
+                      "nullable": true
+                    },
+                    "details": {
+                      "type": "object",
+                      "example": {
+                        "database": {
+                          "status": "up"
+                        },
+                        "redis": {
+                          "status": "down",
+                          "message": "Could not connect"
+                        }
+                      },
+                      "additionalProperties": {
+                        "type": "object",
+                        "required": [
+                          "status"
+                        ],
+                        "properties": {
+                          "status": {
+                            "type": "string"
+                          }
+                        },
+                        "additionalProperties": true
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Health"
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "ReviewDesk API",
+    "description": "Code Review as a Service: upload code, get prioritised static + AI review findings",
+    "version": "1.0",
+    "contact": {}
+  },
+  "tags": [],
+  "servers": [],
+  "components": {
+    "schemas": {
+      "GetUsersResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "emailVerified": {
+                  "type": "boolean"
+                },
+                "image": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "createdAt": {
+                  "type": "Date"
+                },
+                "updatedAt": {
+                  "type": "Date"
+                },
+                "role": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "banned": {
+                  "anyOf": [
+                    {
+                      "type": "boolean"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "banReason": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "banExpires": {
+                  "anyOf": [
+                    {
+                      "type": "Date"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "email",
+                "emailVerified",
+                "image",
+                "createdAt",
+                "updatedAt",
+                "role",
+                "banned",
+                "banReason",
+                "banExpires"
+              ]
+            }
+          }
+        },
+        "required": [
+          "data"
+        ]
+      },
+      "GetUserByIdResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "emailVerified": {
+                "type": "boolean"
+              },
+              "image": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "createdAt": {
+                "type": "Date"
+              },
+              "updatedAt": {
+                "type": "Date"
+              },
+              "role": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "banned": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "banReason": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "banExpires": {
+                "anyOf": [
+                  {
+                    "type": "Date"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "email",
+              "emailVerified",
+              "image",
+              "createdAt",
+              "updatedAt",
+              "role",
+              "banned",
+              "banReason",
+              "banExpires"
+            ]
+          }
+        },
+        "required": [
+          "data"
+        ]
+      },
+      "UploadUserImageResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "emailVerified": {
+                "type": "boolean"
+              },
+              "image": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "createdAt": {
+                "type": "Date"
+              },
+              "updatedAt": {
+                "type": "Date"
+              },
+              "role": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "banned": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "banReason": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "banExpires": {
+                "anyOf": [
+                  {
+                    "type": "Date"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "email",
+              "emailVerified",
+              "image",
+              "createdAt",
+              "updatedAt",
+              "role",
+              "banned",
+              "banReason",
+              "banExpires"
+            ]
+          }
+        },
+        "required": [
+          "data"
+        ]
+      },
+      "UpdateUserBody": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "format": "email",
+            "type": "string"
+          }
+        }
+      },
+      "UpdateUserResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "emailVerified": {
+                "type": "boolean"
+              },
+              "image": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "createdAt": {
+                "type": "Date"
+              },
+              "updatedAt": {
+                "type": "Date"
+              },
+              "role": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "banned": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "banReason": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "banExpires": {
+                "anyOf": [
+                  {
+                    "type": "Date"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "email",
+              "emailVerified",
+              "image",
+              "createdAt",
+              "updatedAt",
+              "role",
+              "banned",
+              "banReason",
+              "banExpires"
+            ]
+          }
+        },
+        "required": [
+          "data"
+        ]
+      },
+      "DeleteUserResponse": {
+        "type": "null"
+      },
+      "CreateReviewResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "allOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "format": "uuid",
+                    "type": "string"
+                  },
+                  "userId": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "anyOf": [
+                      {
+                        "const": "pending",
+                        "type": "string"
+                      },
+                      {
+                        "const": "processing",
+                        "type": "string"
+                      },
+                      {
+                        "const": "completed",
+                        "type": "string"
+                      },
+                      {
+                        "const": "failed",
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "sourceType": {
+                    "type": "string"
+                  },
+                  "uploadCount": {
+                    "type": "integer"
+                  },
+                  "fileCount": {
+                    "type": "integer"
+                  },
+                  "skippedFileCount": {
+                    "type": "integer"
+                  },
+                  "progress": {
+                    "type": "integer"
+                  },
+                  "summary": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "errorMessage": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "aiEnabled": {
+                    "type": "boolean"
+                  },
+                  "aiModel": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "aiError": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "startedAt": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "completedAt": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "createdAt": {
+                    "type": "string"
+                  },
+                  "updatedAt": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "userId",
+                  "title",
+                  "status",
+                  "sourceType",
+                  "uploadCount",
+                  "fileCount",
+                  "skippedFileCount",
+                  "progress",
+                  "summary",
+                  "errorMessage",
+                  "aiEnabled",
+                  "aiModel",
+                  "aiError",
+                  "startedAt",
+                  "completedAt",
+                  "createdAt",
+                  "updatedAt"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "findingCounts": {
+                    "type": "object",
+                    "properties": {
+                      "critical": {
+                        "type": "integer"
+                      },
+                      "high": {
+                        "type": "integer"
+                      },
+                      "medium": {
+                        "type": "integer"
+                      },
+                      "low": {
+                        "type": "integer"
+                      },
+                      "info": {
+                        "type": "integer"
+                      },
+                      "total": {
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "critical",
+                      "high",
+                      "medium",
+                      "low",
+                      "info",
+                      "total"
+                    ]
+                  }
+                },
+                "required": [
+                  "findingCounts"
+                ]
+              }
+            ]
+          }
+        },
+        "required": [
+          "data"
+        ]
+      },
+      "ListReviewsResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "allOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "format": "uuid",
+                      "type": "string"
+                    },
+                    "userId": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "anyOf": [
+                        {
+                          "const": "pending",
+                          "type": "string"
+                        },
+                        {
+                          "const": "processing",
+                          "type": "string"
+                        },
+                        {
+                          "const": "completed",
+                          "type": "string"
+                        },
+                        {
+                          "const": "failed",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "sourceType": {
+                      "type": "string"
+                    },
+                    "uploadCount": {
+                      "type": "integer"
+                    },
+                    "fileCount": {
+                      "type": "integer"
+                    },
+                    "skippedFileCount": {
+                      "type": "integer"
+                    },
+                    "progress": {
+                      "type": "integer"
+                    },
+                    "summary": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "errorMessage": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "aiEnabled": {
+                      "type": "boolean"
+                    },
+                    "aiModel": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "aiError": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "startedAt": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "completedAt": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "createdAt": {
+                      "type": "string"
+                    },
+                    "updatedAt": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "userId",
+                    "title",
+                    "status",
+                    "sourceType",
+                    "uploadCount",
+                    "fileCount",
+                    "skippedFileCount",
+                    "progress",
+                    "summary",
+                    "errorMessage",
+                    "aiEnabled",
+                    "aiModel",
+                    "aiError",
+                    "startedAt",
+                    "completedAt",
+                    "createdAt",
+                    "updatedAt"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "findingCounts": {
+                      "type": "object",
+                      "properties": {
+                        "critical": {
+                          "type": "integer"
+                        },
+                        "high": {
+                          "type": "integer"
+                        },
+                        "medium": {
+                          "type": "integer"
+                        },
+                        "low": {
+                          "type": "integer"
+                        },
+                        "info": {
+                          "type": "integer"
+                        },
+                        "total": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "critical",
+                        "high",
+                        "medium",
+                        "low",
+                        "info",
+                        "total"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "findingCounts"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        "required": [
+          "data"
+        ]
+      },
+      "GetStatsResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "totalReviews": {
+                "type": "integer"
+              },
+              "byStatus": {
+                "type": "object",
+                "properties": {
+                  "pending": {
+                    "type": "integer"
+                  },
+                  "processing": {
+                    "type": "integer"
+                  },
+                  "completed": {
+                    "type": "integer"
+                  },
+                  "failed": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "pending",
+                  "processing",
+                  "completed",
+                  "failed"
+                ]
+              },
+              "findingCounts": {
+                "type": "object",
+                "properties": {
+                  "critical": {
+                    "type": "integer"
+                  },
+                  "high": {
+                    "type": "integer"
+                  },
+                  "medium": {
+                    "type": "integer"
+                  },
+                  "low": {
+                    "type": "integer"
+                  },
+                  "info": {
+                    "type": "integer"
+                  },
+                  "total": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "critical",
+                  "high",
+                  "medium",
+                  "low",
+                  "info",
+                  "total"
+                ]
+              },
+              "filesAnalyzed": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "totalReviews",
+              "byStatus",
+              "findingCounts",
+              "filesAnalyzed"
+            ]
+          }
+        },
+        "required": [
+          "data"
+        ]
+      },
+      "GetReviewResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "allOf": [
+              {
+                "type": "object",
+                "allOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "format": "uuid",
+                        "type": "string"
+                      },
+                      "userId": {
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "status": {
+                        "anyOf": [
+                          {
+                            "const": "pending",
+                            "type": "string"
+                          },
+                          {
+                            "const": "processing",
+                            "type": "string"
+                          },
+                          {
+                            "const": "completed",
+                            "type": "string"
+                          },
+                          {
+                            "const": "failed",
+                            "type": "string"
+                          }
+                        ]
+                      },
+                      "sourceType": {
+                        "type": "string"
+                      },
+                      "uploadCount": {
+                        "type": "integer"
+                      },
+                      "fileCount": {
+                        "type": "integer"
+                      },
+                      "skippedFileCount": {
+                        "type": "integer"
+                      },
+                      "progress": {
+                        "type": "integer"
+                      },
+                      "summary": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "errorMessage": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "aiEnabled": {
+                        "type": "boolean"
+                      },
+                      "aiModel": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "aiError": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "startedAt": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "completedAt": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "createdAt": {
+                        "type": "string"
+                      },
+                      "updatedAt": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "userId",
+                      "title",
+                      "status",
+                      "sourceType",
+                      "uploadCount",
+                      "fileCount",
+                      "skippedFileCount",
+                      "progress",
+                      "summary",
+                      "errorMessage",
+                      "aiEnabled",
+                      "aiModel",
+                      "aiError",
+                      "startedAt",
+                      "completedAt",
+                      "createdAt",
+                      "updatedAt"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "findingCounts": {
+                        "type": "object",
+                        "properties": {
+                          "critical": {
+                            "type": "integer"
+                          },
+                          "high": {
+                            "type": "integer"
+                          },
+                          "medium": {
+                            "type": "integer"
+                          },
+                          "low": {
+                            "type": "integer"
+                          },
+                          "info": {
+                            "type": "integer"
+                          },
+                          "total": {
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "critical",
+                          "high",
+                          "medium",
+                          "low",
+                          "info",
+                          "total"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "findingCounts"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "files": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "format": "uuid",
+                          "type": "string"
+                        },
+                        "path": {
+                          "type": "string"
+                        },
+                        "language": {
+                          "type": "string"
+                        },
+                        "byteSize": {
+                          "type": "integer"
+                        },
+                        "lineCount": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "path",
+                        "language",
+                        "byteSize",
+                        "lineCount"
+                      ]
+                    }
+                  },
+                  "findings": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "format": "uuid",
+                          "type": "string"
+                        },
+                        "filePath": {
+                          "type": "string"
+                        },
+                        "line": {
+                          "anyOf": [
+                            {
+                              "type": "integer"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "endLine": {
+                          "anyOf": [
+                            {
+                              "type": "integer"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "priority": {
+                          "anyOf": [
+                            {
+                              "const": "critical",
+                              "type": "string"
+                            },
+                            {
+                              "const": "high",
+                              "type": "string"
+                            },
+                            {
+                              "const": "medium",
+                              "type": "string"
+                            },
+                            {
+                              "const": "low",
+                              "type": "string"
+                            },
+                            {
+                              "const": "info",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "category": {
+                          "type": "string"
+                        },
+                        "source": {
+                          "anyOf": [
+                            {
+                              "const": "static",
+                              "type": "string"
+                            },
+                            {
+                              "const": "ai",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "rule": {
+                          "type": "string"
+                        },
+                        "title": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "type": "string"
+                        },
+                        "suggestion": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "snippet": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "filePath",
+                        "line",
+                        "endLine",
+                        "priority",
+                        "category",
+                        "source",
+                        "rule",
+                        "title",
+                        "description",
+                        "suggestion",
+                        "snippet"
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "files",
+                  "findings"
+                ]
+              }
+            ]
+          }
+        },
+        "required": [
+          "data"
+        ]
+      },
+      "RetryReviewResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "allOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "format": "uuid",
+                    "type": "string"
+                  },
+                  "userId": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "anyOf": [
+                      {
+                        "const": "pending",
+                        "type": "string"
+                      },
+                      {
+                        "const": "processing",
+                        "type": "string"
+                      },
+                      {
+                        "const": "completed",
+                        "type": "string"
+                      },
+                      {
+                        "const": "failed",
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "sourceType": {
+                    "type": "string"
+                  },
+                  "uploadCount": {
+                    "type": "integer"
+                  },
+                  "fileCount": {
+                    "type": "integer"
+                  },
+                  "skippedFileCount": {
+                    "type": "integer"
+                  },
+                  "progress": {
+                    "type": "integer"
+                  },
+                  "summary": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "errorMessage": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "aiEnabled": {
+                    "type": "boolean"
+                  },
+                  "aiModel": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "aiError": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "startedAt": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "completedAt": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "createdAt": {
+                    "type": "string"
+                  },
+                  "updatedAt": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "userId",
+                  "title",
+                  "status",
+                  "sourceType",
+                  "uploadCount",
+                  "fileCount",
+                  "skippedFileCount",
+                  "progress",
+                  "summary",
+                  "errorMessage",
+                  "aiEnabled",
+                  "aiModel",
+                  "aiError",
+                  "startedAt",
+                  "completedAt",
+                  "createdAt",
+                  "updatedAt"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "findingCounts": {
+                    "type": "object",
+                    "properties": {
+                      "critical": {
+                        "type": "integer"
+                      },
+                      "high": {
+                        "type": "integer"
+                      },
+                      "medium": {
+                        "type": "integer"
+                      },
+                      "low": {
+                        "type": "integer"
+                      },
+                      "info": {
+                        "type": "integer"
+                      },
+                      "total": {
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "critical",
+                      "high",
+                      "medium",
+                      "low",
+                      "info",
+                      "total"
+                    ]
+                  }
+                },
+                "required": [
+                  "findingCounts"
+                ]
+              }
+            ]
+          }
+        },
+        "required": [
+          "data"
+        ]
+      },
+      "DeleteReviewResponse": {
+        "type": "null"
+      }
+    }
+  }
+}

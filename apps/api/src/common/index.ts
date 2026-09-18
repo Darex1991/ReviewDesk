@@ -1,0 +1,34 @@
+import { Static, TSchema, Type } from "@sinclair/typebox";
+import { PostgresJsDatabase } from "drizzle-orm/postgres-js";
+import * as schema from "src/storage/schema";
+
+export type DatabasePg = PostgresJsDatabase<typeof schema>;
+
+export class BaseResponse<T> {
+  data: T;
+
+  constructor(data: T) {
+    this.data = data;
+  }
+}
+
+export const UUIDSchema = Type.String({ format: "uuid" });
+export type UUIDType = Static<typeof UUIDSchema>;
+
+export const StringSchema = Type.String();
+export type StringType = Static<typeof StringSchema>;
+
+export function baseResponse(data: TSchema) {
+  if (data.type === "array") {
+    return Type.Object({
+      data: Type.Array(data.items),
+    });
+  }
+  return Type.Object({
+    data,
+  });
+}
+
+export function nullResponse() {
+  return Type.Null();
+}
